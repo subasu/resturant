@@ -65,8 +65,8 @@ class CheckFiles
         $imageWidthHeightErr = 0;
         $count = count($request->file);
         if ($type == 'slider') {
-            $imageWidth = 1200;
-            $imageHeight = 700;
+            $imageWidth = 1100;
+            $imageHeight = 600;
         } else if ($type == 'logo'){
             $imageWidth = 200;
             $imageHeight = 50;

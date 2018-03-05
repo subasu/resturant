@@ -171,31 +171,7 @@
 
                 <br/>
                 <!-- Modal -->
-                <div id="myModal" class="modal fade" role="dialog" dir="rtl" style="width : 700px; height: 700px; margin-left: 20%;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h2 class="modal-title">مشاهده فیلم آموزشی</h2>
-                            </div>
-                            <div class="modal-body">
-                                <video class="video"
-                                       id="video" name="video_src">
-                                    <source id="playingVideo"
-                                            src="{{url('public/dashboard/trainingVideos/panel.mp4')}}">
-                                </video>
-                            </div>
-                            <div class="modal-footer" >
-                                <div class="nav toggle">
-                                    <a id="playVideo"><i class="fa fa-play-circle margin" data-toggle="" title="پخش ویدئو آموزشی"></i></a>
-                                </div>
-                                <div class="nav toggle">
-                                    <a id="pauseVideo"><i class="fa fa-pause-circle margin" data-toggle="" title="توقف ویدئو آموزشی"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <!-- sidebar menu -->
                 <div id="newModal" class="modal fade" role="dialog">
