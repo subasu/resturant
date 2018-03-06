@@ -8,9 +8,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="املاک آنلاین خمینی شهر">
-    <meta name="keywords" content="املاک آنلاین خمینی شهر،خمینی شهر،املاک آنلاین،خرید و فروش آنلاین ملک،لیست املاک خمینی شهر،املاک خمینی شهر،مشاور املاک در خمینی شهر،مشاور املاک منظریه،مشاور املاک پاسدارن،مشاور املاک هفتصد دستگاه">
-    <meta name="author" content="www.melkomalek.ir">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
     <title>صفحه مورد نظر یافت نشد!</title>
     <!-- Bootstrap core CSS -->
     <link href="{{ URL::asset('public/dashboard/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -248,12 +248,12 @@
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                     </div>
-                    <div class="nav toggle">
-                        <a id="makeBodySmall"><i class="fa fa-search-minus" data-toggle="" title="کوچک نمایی"></i></a>
-                    </div>
-                    <div class="nav toggle">
-                        <a id="makeBodyLarg"><i class="fa fa-search-plus" data-toggle="" title="بزرگ نمایی"></i></a>
-                    </div>
+                    {{--<div class="nav toggle">--}}
+                        {{--<a id="makeBodySmall"><i class="fa fa-search-minus" data-toggle="" title="کوچک نمایی"></i></a>--}}
+                    {{--</div>--}}
+                    {{--<div class="nav toggle">--}}
+                        {{--<a id="makeBodyLarg"><i class="fa fa-search-plus" data-toggle="" title="بزرگ نمایی"></i></a>--}}
+                    {{--</div>--}}
                     {{--<div class="" style="float: right;padding: 1% 2% 0 0 !important;">--}}
                     {{--<a id="back" class="btn btn-info">بازگشت به صفحه قبل</a>--}}
                     {{--</div>--}}

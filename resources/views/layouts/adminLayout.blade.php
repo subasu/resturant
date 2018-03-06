@@ -348,9 +348,9 @@
                     <div class="nav toggle">
 
                     </div>
-                    <div class="nav toggle">
-                        <a id="showVideo"><button class="btn btn-dark col-md-offset-12" data-toggle="" title="">پخش ویدئو آموزشی</button></a>
-                    </div>
+                    {{--<div class="nav toggle">--}}
+                        {{--<a id="showVideo"><button class="btn btn-dark col-md-offset-12" data-toggle="" title="">پخش ویدئو آموزشی</button></a>--}}
+                    {{--</div>--}}
                 </nav>
             </div>
             <input type="hidden" id="token" value="{{csrf_token()}}">

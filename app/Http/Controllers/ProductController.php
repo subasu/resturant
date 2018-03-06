@@ -106,20 +106,20 @@ class ProductController extends Controller
         if (count($products) > 0) {
             $products[0]->produceDate = $this->toPersian($products[0]->produce_date);
             $products[0]->expireDate = $this->toPersian($products[0]->expire_date);
-            foreach ($products as $pr) {
-                $pr->modelName = Modol::find($pr->productSizes->model_id)->title;
-                $productSize = Size::find($pr->productSizes->size_id);
-                if ($productSize->width !="") {
-                    $pr->sizeName = $productSize->width . ' در ' . $productSize->length;
-                }
-                elseif ($productSize->diameter !="") {
-                    $pr->sizeName =  ' قطر ' . $productSize->diameter;
-                }
-                elseif ($productSize->sideways !="") {
-                    $pr->sizeName =  ' ضلع ' . $productSize->sideways;
-                }
-
-            }
+//            foreach ($products as $pr) {
+////                $pr->modelName = Modol::find($pr->productSizes->model_id)->title;
+////                $productSize = Size::find($pr->productSizes->size_id);
+//                if ($productSize->width !="") {
+//                    $pr->sizeName = $productSize->width . ' در ' . $productSize->length;
+//                }
+//                elseif ($productSize->diameter !="") {
+//                    $pr->sizeName =  ' قطر ' . $productSize->diameter;
+//                }
+//                elseif ($productSize->sideways !="") {
+//                    $pr->sizeName =  ' ضلع ' . $productSize->sideways;
+//                }
+//
+//            }
             return view('admin.productDetails', compact('products', 'pageTitle'));
         } else {
             return view('errors.403');

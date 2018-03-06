@@ -262,7 +262,7 @@
                                                type="text">
                                     </div>
                                     <label class="control-label col-md-2 col-sm-4 col-xs-3" for="ready_time"> زمان آماده
-                                        شدن بر حسب ساعت :
+                                        شدن بر حسب دقیقه :
                                         <span class="required star" title="پر کردن این فیلد الزامی است"></span>
                                     </label>
                                 </div>
@@ -300,23 +300,6 @@
                                     <label class="control-label col-md-2 col-sm-4 col-xs-3" for="video_src"> ویدئوی
                                         محصول :
                                         <span class="required star"></span>
-                                    </label>
-                                </div>
-                                <div class="col-md-12 col-md-offset-1 margin-1">
-                                    <div class="col-md-5 col-sm-6 col-xs-9 col-md-offset-2">
-                                        <select id="productModel" class="form-control col-md-7 col-xs-12" name="productModel">
-                                        </select>
-                                    </div>
-                                    <label class="control-label col-md-2 col-sm-4 col-xs-3" for="productModel"> انتخاب حالت محصول :
-                                    </label>
-                                </div>
-                                <div class="col-md-12 col-md-offset-1 margin-1 margin-bot-1">
-                                    <div class="col-md-5 col-sm-6 col-xs-9 col-md-offset-2">
-                                        <select id="productSizes" class="form-control col-md-7 col-xs-12" name="productSizes">
-                                            <option disabled="" >ابتدا حالت مورد نظر را انتخاب نمائید</option>
-                                        </select>
-                                    </div>
-                                    <label class="control-label col-md-2 col-sm-4 col-xs-3" for="productSizes"> انتخاب اندازه :
                                     </label>
                                 </div>
                             </div>
@@ -656,74 +639,74 @@
                     }
                 });
                 //load product Models if there is no product Model in table redirect addModels
-                $.ajax({
-                    cache: false,
-                    url: "{{Url('api/v1/getModels')}}",
-                    dataType: "json",
-                    type: "get",
-                    success: function (response) {
-                        console.log(response);
-                        if (response != 0) {
-                            var responses = response;
-                            var selectBoxId = '#productModel';
-                            var msgOpt1 = "لطفا حالت مورد نظر خود را انتخاب نمایید";
-                            var msgOpt2 = "اگر حالت مورد نظر در این لیست وجود ندارد این گزینه انتخاب نمایید";
-                            var valueOption2 = 0000;
-                            loadItems(responses, selectBoxId, msgOpt1, msgOpt2, valueOption2)
-                        }
-                        else {
-                            setTimeout(function(){location.href = '{{url("admin/addModels")}}';},1500);
-                        }
-                    }
-                });
-                $('#productSizes').on("change", function () {
-                    var id = $(this).val();
-                    if (id == 0) {
-                        setTimeout(function(){location.href = '{{url("admin/addSizes")}}';},1500);
-                    }
-                    });
-                $('#productModel').on("change", function () {
-                    var id = $(this).val();
-                    if (id == 0) {
-                        setTimeout(function(){location.href = '{{url("admin/addModels")}}';},1500);
-                    }
-                    else {
-                        $.ajax
-                        ({
-                            cache: false,
-                            url: "{{Url('api/v1/getSizes')}}/" + id,
-                            dataType: "json",
-                            type: "get",
-                            success: function (response) {
-                                var responses = response;
-                                var selectBoxId = '#productSizes';
-                                var msgOpt1 = "لطفا اندازه مورد نظر خود را انتخاب نمایید";
-                                var msgOpt2 = "اگر اندازه مورد نظر در این لیست وجود ندارد این گزینه انتخاب نمایید";
-                                var valueOption2 = 0;
-                                loadSizes(responses, selectBoxId, msgOpt1, msgOpt2, valueOption2)
-                            }
-                        });
-                    }
-                });
-                //load sizes in select box
-                function loadSizes(responses, selectBoxId, msgOption1, msgOption2, valueOption2) {
-                    var item = $(selectBoxId);
-                    item.empty();
-                    item.append("<option selected='true' disabled='disabled'>" + msgOption1 + "</option>");
-                    item.append("<option value='" + valueOption2 + "'>" + msgOption2 + "</option>");
-                    console.log(responses);
-                    $.each(responses, function (key, value) {
-                        if(value.sideways!="")
-                        item.append
-                        ("<option value='" + value.id + "' > ضلع " + value.sideways + "</option>");
-                        else if(value.width!="")
-                        item.append
-                        ("<option value='" + value.id + "' >" + value.width +" در "+ value.length + "</option>");
-                        else if(value.diameter!="")
-                        item.append
-                        ("<option value='" + value.id + "' > قطر " + value.diameter + "</option>");
-                    });
-                }
+                {{--$.ajax({--}}
+                    {{--cache: false,--}}
+                    {{--url: "{{Url('api/v1/getModels')}}",--}}
+                    {{--dataType: "json",--}}
+                    {{--type: "get",--}}
+                    {{--success: function (response) {--}}
+                        {{--console.log(response);--}}
+                        {{--if (response != 0) {--}}
+                            {{--var responses = response;--}}
+                            {{--var selectBoxId = '#productModel';--}}
+                            {{--var msgOpt1 = "لطفا حالت مورد نظر خود را انتخاب نمایید";--}}
+                            {{--var msgOpt2 = "اگر حالت مورد نظر در این لیست وجود ندارد این گزینه انتخاب نمایید";--}}
+                            {{--var valueOption2 = 0000;--}}
+                            {{--loadItems(responses, selectBoxId, msgOpt1, msgOpt2, valueOption2)--}}
+                        {{--}--}}
+                        {{--else {--}}
+                            {{--setTimeout(function(){location.href = '{{url("admin/addModels")}}';},1500);--}}
+                        {{--}--}}
+                    {{--}--}}
+                {{--});--}}
+                {{--$('#productSizes').on("change", function () {--}}
+                    {{--var id = $(this).val();--}}
+                    {{--if (id == 0) {--}}
+                        {{--setTimeout(function(){location.href = '{{url("admin/addSizes")}}';},1500);--}}
+                    {{--}--}}
+                    {{--});--}}
+                {{--$('#productModel').on("change", function () {--}}
+                    {{--var id = $(this).val();--}}
+                    {{--if (id == 0) {--}}
+                        {{--setTimeout(function(){location.href = '{{url("admin/addModels")}}';},1500);--}}
+                    {{--}--}}
+                    {{--else {--}}
+                        {{--$.ajax--}}
+                        {{--({--}}
+                            {{--cache: false,--}}
+                            {{--url: "{{Url('api/v1/getSizes')}}/" + id,--}}
+                            {{--dataType: "json",--}}
+                            {{--type: "get",--}}
+                            {{--success: function (response) {--}}
+                                {{--var responses = response;--}}
+                                {{--var selectBoxId = '#productSizes';--}}
+                                {{--var msgOpt1 = "لطفا اندازه مورد نظر خود را انتخاب نمایید";--}}
+                                {{--var msgOpt2 = "اگر اندازه مورد نظر در این لیست وجود ندارد این گزینه انتخاب نمایید";--}}
+                                {{--var valueOption2 = 0;--}}
+                                {{--loadSizes(responses, selectBoxId, msgOpt1, msgOpt2, valueOption2)--}}
+                            {{--}--}}
+                        {{--});--}}
+                    {{--}--}}
+                {{--});--}}
+                {{--//load sizes in select box--}}
+                {{--function loadSizes(responses, selectBoxId, msgOption1, msgOption2, valueOption2) {--}}
+                    {{--var item = $(selectBoxId);--}}
+                    {{--item.empty();--}}
+                    {{--item.append("<option selected='true' disabled='disabled'>" + msgOption1 + "</option>");--}}
+                    {{--item.append("<option value='" + valueOption2 + "'>" + msgOption2 + "</option>");--}}
+                    {{--console.log(responses);--}}
+                    {{--$.each(responses, function (key, value) {--}}
+                        {{--if(value.sideways!="")--}}
+                        {{--item.append--}}
+                        {{--("<option value='" + value.id + "' > ضلع " + value.sideways + "</option>");--}}
+                        {{--else if(value.width!="")--}}
+                        {{--item.append--}}
+                        {{--("<option value='" + value.id + "' >" + value.width +" در "+ value.length + "</option>");--}}
+                        {{--else if(value.diameter!="")--}}
+                        {{--item.append--}}
+                        {{--("<option value='" + value.id + "' > قطر " + value.diameter + "</option>");--}}
+                    {{--});--}}
+                {{--}--}}
                 //load item in select box
                 function loadItems(responses, selectBoxId, msgOption1, msgOption2, valueOption2) {
                     var item = $(selectBoxId);

@@ -137,7 +137,7 @@
                     @if(!empty($products))
                         <input type="hidden" value="{{$products[0]->id}}" name="id"/>
                         <div>
-                            <div id="step-4" class="">
+                            <div id="step-1" class="">
                                 <br>
                                 <div class="container">
                                     <br>
@@ -648,7 +648,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="step-1" class="">
+                            <div id="step-4" class="">
                                 <div class="container">
                                     <div id="addPic" class="grandparent">
                                         @php $picCount = count($products[0]->productImages); @endphp
@@ -746,45 +746,45 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="grandparent" id="grandparent">
-                                        <div class="col-md-10 margin-bot-1 parent">
-                                            <div class="col-md-2 col-md-offset-3">
-                                                <a type="button" name="edit" id="edit"
-                                                   class="glyphicon glyphicon-edit btn btn-success edit"
-                                                   content="{{$products[0]->id}}"
-                                                   title="ویرایش "></a>
-                                            </div>
-                                            <div class="col-md-5 col-sm-6 col-xs-9" id="productModel_parent">
-                                                <select id="editable" disabled class="form-control col-md-7 col-xs-12 editable" name="productModel">
-                                                    <option value="{{$products[0]->productSizes->model_id}}">{{$products[0]->modelName }}</option>
-                                                </select>
-                                            </div>
-                                            <label class="control-label col-md-2 col-sm-4 col-xs-3" for="productModel">
-                                                انتخاب حالت محصول :
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="grandparent" id="grandparent">
-                                        <div class="col-md-10 margin-bot-1 parent">
-                                            <div class="col-md-2 col-md-offset-3">
-                                                <a type="button" name="edit" id="edit"
-                                                   class="glyphicon glyphicon-edit btn btn-success edit"
-                                                   content="{{$products[0]->id}}"
-                                                   title="ویرایش "></a>
-                                            </div>
-                                            <div class="col-md-5 col-sm-6 col-xs-9">
-                                                <select id="editable"  class="form-control col-md-7 col-xs-12 editable"
-                                                        name="productSizes" disabled id="editable">
-                                                    <option>
-                                                        {{$products[0]->sizeName}}
-                                                    </option>
-                                                </select>
-                                            </div>
-                                            <label class="control-label col-md-2 col-sm-4 col-xs-3" for="productSizes">
-                                                انتخاب اندازه :
-                                            </label>
-                                        </div>
-                                    </div>
+                                    {{--<div class="grandparent" id="grandparent">--}}
+                                        {{--<div class="col-md-10 margin-bot-1 parent">--}}
+                                            {{--<div class="col-md-2 col-md-offset-3">--}}
+                                                {{--<a type="button" name="edit" id="edit"--}}
+                                                   {{--class="glyphicon glyphicon-edit btn btn-success edit"--}}
+                                                   {{--content="{{$products[0]->id}}"--}}
+                                                   {{--title="ویرایش "></a>--}}
+                                            {{--</div>--}}
+                                            {{--<div class="col-md-5 col-sm-6 col-xs-9" id="productModel_parent">--}}
+                                                {{--<select id="editable" disabled class="form-control col-md-7 col-xs-12 editable" name="productModel">--}}
+                                                    {{--<option value="{{$products[0]->productSizes->model_id}}">{{$products[0]->modelName }}</option>--}}
+                                                {{--</select>--}}
+                                            {{--</div>--}}
+                                            {{--<label class="control-label col-md-2 col-sm-4 col-xs-3" for="productModel">--}}
+                                                {{--انتخاب حالت محصول :--}}
+                                            {{--</label>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="grandparent" id="grandparent">--}}
+                                        {{--<div class="col-md-10 margin-bot-1 parent">--}}
+                                            {{--<div class="col-md-2 col-md-offset-3">--}}
+                                                {{--<a type="button" name="edit" id="edit"--}}
+                                                   {{--class="glyphicon glyphicon-edit btn btn-success edit"--}}
+                                                   {{--content="{{$products[0]->id}}"--}}
+                                                   {{--title="ویرایش "></a>--}}
+                                            {{--</div>--}}
+                                            {{--<div class="col-md-5 col-sm-6 col-xs-9">--}}
+                                                {{--<select id="editable"  class="form-control col-md-7 col-xs-12 editable"--}}
+                                                        {{--name="productSizes" disabled id="editable">--}}
+                                                    {{--<option>--}}
+                                                        {{--{{$products[0]->sizeName}}--}}
+                                                    {{--</option>--}}
+                                                {{--</select>--}}
+                                            {{--</div>--}}
+                                            {{--<label class="control-label col-md-2 col-sm-4 col-xs-3" for="productSizes">--}}
+                                                {{--انتخاب اندازه :--}}
+                                            {{--</label>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
 
                                 </div>
                             </div>

@@ -100,7 +100,7 @@ class IndexController extends Controller
             $mnu->countCat=$counter;
         }
 //        dd($menu);
-        $pageTitle = 'صفحه ی اصلی';
+        $pageTitle = 'رستوران آرتان';
         $capital = City::where('parent_id', '=', '1')->get();
         $services = Service::where('active', '=', '1')->get();
         $sliders = Slider::where('active', '=', '1')->get();
@@ -206,8 +206,8 @@ class IndexController extends Controller
                     'telephone' => 'sometimes|nullable|numeric|size:11',
                     'cellphone' => 'required|numeric|min:11|unique:users',
                     'birth_date' => 'sometimes|nullable|min:8|max:10',
-                    'capital' => 'required',
-                    'town' => 'required',
+                    'capital' => 'sometimes|nullable',
+                    'town' => 'sometimes|nullable',
                     'zipCode' => 'sometimes|nullable|numeric|min:10',
                     'captcha' => 'required|in:' . session()->get('captcha')
                 ]
@@ -253,8 +253,8 @@ class IndexController extends Controller
             'cellphone' => $data['cellphone'],
             'birth_date' => $data['birth_date'],
             'address' => $data['address'],
-            'capital_city_id' => $capital,
-            'town_city_id' => $data['town'],
+           // 'capital_city_id' => $capital,
+            //'town_city_id' => $data['town'],
             'telephone' => $data['telephone'],
             'role_id' => $role_id,
             'zipCode' => $data['zipCode'],
@@ -336,11 +336,11 @@ class IndexController extends Controller
     //below function is related to return order view
     public function order($parameter)
     {
-        if (isset($_COOKIE['addToArtBasket'])) {
+        if (isset($_COOKIE['addToResturantBasket'])) {
 
             switch ($parameter) {
                 case 'basketDetail':
-                    $basketId = Basket::where([['cookie', $_COOKIE['addToArtBasket']], ['payment', 0]])->value('id');
+                    $basketId = Basket::where([['cookie', $_COOKIE['addToResturantBasket']], ['payment', 0]])->value('id');
                     if ($basketId) {
                         $baskets = Basket::find($basketId);
                         $total = 0;
@@ -354,13 +354,13 @@ class IndexController extends Controller
                         return response()->json(['baskets'=>$baskets,'total'=>$total]);
                     }
                     else
-                        return response()->json($_COOKIE['addToArtBasket']);
+                        return response()->json($_COOKIE['addToResturantBasket']);
                     break;
 
                 case 'orderDetail':
                     $pageTitle = 'جزئیات سفارش';
                     $paymentTypes = PaymentType::where('active', 1)->get();
-                    $basketId = Basket::where([['cookie', $_COOKIE['addToArtBasket']], ['payment', 0]])->value('id');
+                    $basketId = Basket::where([['cookie', $_COOKIE['addToResturantBasket']], ['payment', 0]])->value('id');
                     $baskets = Basket::find($basketId);
                     $total = 0;
                     $totalDiscount = 0;

@@ -52,7 +52,7 @@ class UserController extends Controller
                     return response()->json(['message' => 'خطایی رخ داده است']);
                 }
 
-            } else if ($oldBasket = DB::table('baskets')->where([['cookie', $_COOKIE['addToArtBasket']], ['payment', 1]])->count() > 0) {
+            } else if ($oldBasket = DB::table('baskets')->where([['cookie', $_COOKIE['addToResturantBasket']], ['payment', 1]])->count() > 0) {
                 return $this->newCookie($now, $request);
             } else {
                 $pivotInsert = DB::table('basket_product')->insert
@@ -80,7 +80,7 @@ class UserController extends Controller
     public function newCookie($now, $request)
     {
         $cookieValue = mt_rand(1, 1000) . microtime();
-        $cookie = setcookie('addToArtBasket', $cookieValue, time() + (86400 * 30), "/");
+        $cookie = setcookie('addToResturantBasket', $cookieValue, time() + (86400 * 30), "/");
         if ($cookie) {
             $basket = new Basket();
             $basket->cookie = $cookieValue;
@@ -110,9 +110,9 @@ class UserController extends Controller
     //below function is related to get basket count
     public function getBasketCountNotify()
     {
-        if(isset($_COOKIE['addToArtBasket']))
+        if(isset($_COOKIE['addToResturantBasket']))
         {
-            $basketId = DB::table('baskets')->where([['cookie', $_COOKIE['addToArtBasket']], ['payment', 0]])->value('id');
+            $basketId = DB::table('baskets')->where([['cookie', $_COOKIE['addToResturantBasket']], ['payment', 0]])->value('id');
             $count = DB::table('basket_product')->where('basket_id', $basketId)->count();
             return response()->json($count);
         }else
@@ -125,8 +125,8 @@ class UserController extends Controller
     //below function is related to get basket total price
     public function getBasketTotalPrice()
     {
-        if(isset($_COOKIE['addToArtBasket'])) {
-            $basketId = DB::table('baskets')->where([['cookie', $_COOKIE['addToArtBasket']], ['payment', 0]])->value('id');
+        if(isset($_COOKIE['addToResturantBasket'])) {
+            $basketId = DB::table('baskets')->where([['cookie', $_COOKIE['addToResturantBasket']], ['payment', 0]])->value('id');
             $baskets = DB::table('basket_product')->where('basket_id', $basketId)->get();
             $totalPrice = '';
             foreach ($baskets as $basket) {
@@ -142,7 +142,7 @@ class UserController extends Controller
     //below function is related to get basket content
     public function getBasketContent()
     {
-        $basketId = DB::table('baskets')->where([['cookie', $_COOKIE['addToArtBasket']], ['payment', 0]])->value('id');
+        $basketId = DB::table('baskets')->where([['cookie', $_COOKIE['addToResturantBasket']], ['payment', 0]])->value('id');
         $baskets = Basket::find($basketId);
         foreach ($baskets->products as $product) {
             $product->count = $product->pivot->count;
@@ -172,8 +172,8 @@ class UserController extends Controller
     //below function is related to update basket payment field
     public function orderFixed()
     {
-        if (isset($_COOKIE['addToArtBasket'])) {
-            $update = DB::table('baskets')->where('cookie', $_COOKIE['addToArtBasket'])->update(['payment' => 1]);
+        if (isset($_COOKIE['addToResturantBasket'])) {
+            $update = DB::table('baskets')->where('cookie', $_COOKIE['addToResturantBasket'])->update(['payment' => 1]);
             if ($update) {
                 return response()->json(['message' => '', 'code' => 1]);
             }

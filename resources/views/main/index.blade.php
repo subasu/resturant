@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- CSRF Token -->
     <meta name="csrf-token" id="token" content="{{ csrf_token() }}">
-    <title>نقاشی کوبیسم</title>
+    <title>{{$pageTitle}}</title>
     <meta name="description" content="سایت"/>
-    <meta name="keywords" content="تابلو نقاشی،کوبیسم،سایت فروش آثار هنری و نقاشی، اثر هنری کوبیسم، سبک کوبیسم"/>
+    <meta name="keywords" content="رستوران،سفارش غذا،بهترین رستوران"/>
     <meta name="author" content="گروه مهندسی آرتان"/>
     {{--type='text/css'>--}}
     <link rel="stylesheet" href="{{URL::asset('public/main/css/bootstrap.css')}}" type="text/css"/>
@@ -93,7 +93,7 @@
                                     <li dir="rtl"><a href="#shopCart" class="shopCart nav-link">سبد خرید <span
                                                     class="sub-toggle"></span><b>[</b><b id="basketCount"> </b><b>]</b></a>
                                     </li>
-                                    <li><a href="#gallery" class="nav-link">گالری</a></li>
+                                    {{--<li><a href="#gallery" class="nav-link">گالری</a></li>--}}
                                     <li><a href="#loginRegister" class="nav-link">ورود / ثبت نام</a></li>
                                     {{--<li><a href="#contactform" class="nav-link">تماس با ما<span--}}
                                     {{--class="sub-toggle"></span></a></li>--}}
@@ -111,7 +111,7 @@
         <!--Home Page
         =============================-->
         <div id="home" class="item">
-            <img src="{{URL::asset('public/main/img/2.jpg')}}" alt="گالری هنری" class="fullBg">
+            <img src="{{URL::asset('public/main/img/2.jpg')}}" alt="رستوران آرتان" class="fullBg">
             <div class="clearfix">
                 <div class="header_details">
                     <div class="container">
@@ -136,11 +136,11 @@
                         @endif
                         <div class="call yekan">
                             <div class="home_address yekan" dir="rtl">
-                                <i class="fa fa-map-marker"></i> آدرس گالری شما
-                                <br> <i class="fa fa-phone"></i> 02122446688
+                                <i class="fa fa-map-marker"></i> آدرس رستوران
+                                <br> <i class="fa fa-phone"></i> 031-333-76-496
                             </div>
                             <div class="home_address yekan">
-                                برای ثبت سفارش عضو شوید و از طریق پنل مدیریتی اقدام نمائید
+                                برای ثبت سفارش عضو شوید و سپس سفارش خود را ثبت  نمائید
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
         <!--About us
         =============================-->
         <div id="about" class="item" style="background-color:#999999;">
-            <img src="{{URL::asset('public/main/img/12.jpg')}}" alt="گالری هنری نقاشی" class="fullBg">
+            <img src="{{URL::asset('public/main/img/12.jpg')}}" alt="رستوران آرتان" class="fullBg">
             <div class="content">
                 <div class="content_overlay"></div>
                 <div class="content_inner">
@@ -246,7 +246,7 @@
         <!--Menu with image small
         =============================-->
         <div id="category" class="item">
-            <img src="{{URL::asset('public/main/img/10.jpg')}}" alt="گالری هنری نقاشی " class="fullBg">
+            <img src="{{URL::asset('public/main/img/10.jpg')}}" alt="رستوران آرتان " class="fullBg">
             <div class="content">
                 <div class="content_overlay"></div>
                 <div class="content_inner">
@@ -321,7 +321,7 @@
         <!-- products with image small
         =============================-->
         <div id="products" class="item">
-            <img src="{{URL::asset('public/main/img/10.jpg')}}" alt="سایت هنری" class="fullBg">
+            <img src="{{URL::asset('public/main/img/10.jpg')}}" alt="رستوران آرتان" class="fullBg">
             <div class="content">
 
                 <div class="content_overlay"></div>
@@ -573,16 +573,25 @@
                                         {{csrf_field()}}
                                         <input type="hidden" value="user" name="frmtype">
                                         <div class="clearfix reserve_form">
-                                            <input type="text" name="name" id="name"
-                                                   class="validate['required'] textbox1 yekan a-right"
-                                                   placeholder=" نام : "
-                                                   onfocus="this.placeholder = ''"
-                                                   onBlur="this.placeholder = ' نام :'"/>
-                                            <input type="text" name="family" id="family"
-                                                   class="validate['required'] textbox1 yekan a-right"
-                                                   placeholder=" نام خانوادگی : "
-                                                   onfocus="this.placeholder = ''"
-                                                   onBlur="this.placeholder = ' نام خانوادگی :'"/>
+                                            {{--<input type="text" name="name" id="name"--}}
+                                                   {{--class="validate['required'] textbox1 yekan a-right"--}}
+                                                   {{--placeholder=" نام : "--}}
+                                                   {{--onfocus="this.placeholder = ''"--}}
+                                                   {{--onBlur="this.placeholder = ' نام :'"/>--}}
+                                            {{--<input type="text" name="family" id="family"--}}
+                                                   {{--class="validate['required'] textbox1 yekan a-right"--}}
+                                                   {{--placeholder=" نام خانوادگی : "--}}
+                                                   {{--onfocus="this.placeholder = ''"--}}
+                                                   {{--onBlur="this.placeholder = ' نام خانوادگی :'"/>--}}
+
+                                            {{--<input type="text" name="phone"--}}
+                                                   {{--class="validate['required','phone']  textbox1 yekan a-right"--}}
+                                                   {{--placeholder="* شماره موبایل : " onFocus="this.placeholder = ''"--}}
+                                                   {{--onBlur="this.placeholder = '* تلفن موبایل :'"/>--}}
+                                            <input type="text" name="cellphone" id="cellphone"
+                                            class="validate['required','phone']  textbox1 yekan a-right"
+                                            placeholder="* تلفن همراه : " onFocus="this.placeholder = ''"
+                                            onBlur="this.placeholder = '* تلفن همراه :'"/>
                                             <input type="text" id="password" name="password"
                                                    class="validate['required'] textbox1 yekan a-right"
                                                    placeholder="* پسورد : "
@@ -593,46 +602,40 @@
                                                    placeholder="* تکرار پسورد : "
                                                    onfocus="this.placeholder = ''"
                                                    onBlur="this.placeholder = '* تکرار پسورد :'"/>
-                                            <input type="text" name="email" id="email"
-                                                   class="validate['required','email']  textbox1 yekan a-right"
-                                                   placeholder=" ایمیل : " onFocus="this.placeholder = ''"
-                                                   onBlur="this.placeholder = ' ایمیل :'"/>
-                                            <input type="text" name="phone"
-                                                   class="validate['required','phone']  textbox1 yekan a-right"
-                                                   placeholder="* شماره موبایل : " onFocus="this.placeholder = ''"
-                                                   onBlur="this.placeholder = '* تلفن موبایل :'"/>
-                                            <input type="text" name="cellphone" id="cellphone"
-                                                   class="validate['required','phone']  textbox1 yekan a-right"
-                                                   placeholder="* شماره تلفن : " onFocus="this.placeholder = ''"
-                                                   onBlur="this.placeholder = '* شماره تلفن :'"/>
-                                            <input type="text" name="birth_date" id="birth_date"
-                                                   class="validate['required']  textbox1 yekan a-right"
-                                                   placeholder="* تاریخ تولد : " onFocus="this.placeholder = ''"
-                                                   onBlur="this.placeholder = '* تاریخ تولد :'"/>
-                                            <select name="capital" id="capital"
-                                                    class="validate['required']  textbox1 yekan a-right"
-                                                    placeholder="* استان : " onFocus="this.placeholder = ''"
-                                                    onBlur="this.placeholder = '* استان :'">
-                                                <option class="align-right" value="-1">لطفا استان مورد نظر خود را انتخاب
-                                                    نمایید.
-                                                </option>
-                                                @foreach($capital as $cap)
-                                                    <option class="align-right"
-                                                            value="{{$cap->id}}">{{$cap->title}}</option>
-                                                @endforeach                                            </select>
-                                            <select name="town" id="town"
-                                                    class="validate['required']  textbox1 yekan a-right"
-                                                    placeholder=" شهرستان : " onFocus="this.placeholder = ''"
-                                                    onBlur="this.placeholder = ' شهرستان :'">
-                                            </select>
-                                            <input type="text" name="zipCode" id="zipCode"
-                                                   class="validate['required','phone']  textbox1 yekan a-right"
-                                                   placeholder=" کد پستی : " onFocus="this.placeholder = ''"
-                                                   onBlur="this.placeholder = ' کد پستی :'"/>
-                                            <textarea name="address" id="address"
-                                                      class="validate['required'] messagebox1 yekan a-right"
-                                                      placeholder=" آدرس : " onFocus="this.placeholder = ''"
-                                                      onBlur="this.placeholder = ' آدرس :'"></textarea>
+                                            {{--<input type="text" name="email" id="email"--}}
+                                                   {{--class="validate['required','email']  textbox1 yekan a-right"--}}
+                                                   {{--placeholder=" ایمیل : " onFocus="this.placeholder = ''"--}}
+                                                   {{--onBlur="this.placeholder = ' ایمیل :'"/>--}}
+
+
+                                            {{--<input type="text" name="birth_date" id="birth_date"--}}
+                                                   {{--class="validate['required']  textbox1 yekan a-right"--}}
+                                                   {{--placeholder="* تاریخ تولد : " onFocus="this.placeholder = ''"--}}
+                                                   {{--onBlur="this.placeholder = '* تاریخ تولد :'"/>--}}
+                                            {{--<select name="capital" id="capital"--}}
+                                                    {{--class="validate['required']  textbox1 yekan a-right"--}}
+                                                    {{--placeholder="* استان : " onFocus="this.placeholder = ''"--}}
+                                                    {{--onBlur="this.placeholder = '* استان :'">--}}
+                                                {{--<option class="align-right" value="-1">لطفا استان مورد نظر خود را انتخاب--}}
+                                                    {{--نمایید.--}}
+                                                {{--</option>--}}
+                                                {{--@foreach($capital as $cap)--}}
+                                                    {{--<option class="align-right"--}}
+                                                            {{--value="{{$cap->id}}">{{$cap->title}}</option>--}}
+                                                {{--@endforeach                                            </select>--}}
+                                            {{--<select name="town" id="town"--}}
+                                                    {{--class="validate['required']  textbox1 yekan a-right"--}}
+                                                    {{--placeholder=" شهرستان : " onFocus="this.placeholder = ''"--}}
+                                                    {{--onBlur="this.placeholder = ' شهرستان :'">--}}
+                                            {{--</select>--}}
+                                            {{--<input type="text" name="zipCode" id="zipCode"--}}
+                                                   {{--class="validate['required','phone']  textbox1 yekan a-right"--}}
+                                                   {{--placeholder=" کد پستی : " onFocus="this.placeholder = ''"--}}
+                                                   {{--onBlur="this.placeholder = ' کد پستی :'"/>--}}
+                                            {{--<textarea name="address" id="address"--}}
+                                                      {{--class="validate['required'] messagebox1 yekan a-right"--}}
+                                                      {{--placeholder=" آدرس : " onFocus="this.placeholder = ''"--}}
+                                                      {{--onBlur="this.placeholder = ' آدرس :'"></textarea>--}}
                                             <i class="fa fa-refresh fa-lg fa-2x captcha-reload col-md-1" height="50"
                                                width="50"></i>
                                             <img class="captcha col-md-4" alt="captcha.png" id="captcha-image"/>
@@ -940,23 +943,23 @@
                             type: "warning",
                         })
                     }
-                    else if (response.status === 421) {
-                        swal({
-                            title: "",
-                            text: "اطلاعات شما با مؤفقیت ثبت شد، پس از تأیید شدن توسط مدیر سایت برای شما ایمیل فعال سازی ارسال خواهد شد.منتظر پیامک اطلاعیه از طرف سایت باشید.",
-                            type: "warning",
-                            confirmButtonText: "بستن"
-                        });
-                    }
-                    else {
-                        swal({
-                            title: "",
-//                                text: 'خطایی رخ داده است، لطفا با پشتیبانی تماس حاصل فرمائید',
-                            text: "اطلاعات شما با مؤفقیت ثبت شد، پس از تأیید شدن توسط مدیر سایت برای شما ایمیل فعال سازی ارسال خواهد شد.منتظر پیامک اطلاعیه از طرف سایت باشید.",
-                            type: "warning",
-                            confirmButtonText: "بستن"
-                        });
-                    }
+//                    else if (response.status === 421) {
+//                        swal({
+//                            title: "",
+//                            text: "اطلاعات شما با مؤفقیت ثبت شد، پس از تأیید شدن توسط مدیر سایت برای شما ایمیل فعال سازی ارسال خواهد شد.منتظر پیامک اطلاعیه از طرف سایت باشید.",
+//                            type: "success",
+//                            confirmButtonText: "بستن"
+//                        });
+                    //}
+//                    else {
+//                        swal({
+//                            title: "",
+////                                text: 'خطایی رخ داده است، لطفا با پشتیبانی تماس حاصل فرمائید',
+//                            text: "اطلاعات شما با مؤفقیت ثبت شد، پس از تأیید شدن توسط مدیر سایت برای شما ایمیل فعال سازی ارسال خواهد شد.منتظر پیامک اطلاعیه از طرف سایت باشید.",
+//                            type: "success",
+//                            confirmButtonText: "بستن"
+//                        });
+//                    }
                 }//error
 
             })//ajax
@@ -1087,9 +1090,8 @@
                     '</a>' +
                     '</div>' +
                     '</div><br>' +
-                    '<div class="col-md-5"> شرح اثر : ' + response.product.description + "<br>قیمت اثر : " + formatNumber(response.product.price) +
-                    '<span>تومان</span><br>اندازه و حالت بوم : ' + response.product.modelName + ' - ' + response.product.sizeName +
-                    '<div class="add-to-cart">' +
+                    '<div class="col-md-5"> توضیحات : ' + response.product.description + "<br><span class='text-warning'>قیمت : " + formatNumber(response.product.price) +
+                    '<span>تومان</span></span>'+
                     '<button class="button  nav-link yekan pull-left" content="' + response.product.price + '" id="addToBasket" name="' + response.product.id + '">' +
                     '<span></span>افزودن به سبد خرید' +
                     '</button>' +
