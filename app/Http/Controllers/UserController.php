@@ -478,19 +478,9 @@ class UserController extends Controller
                 $newOrders                = new NewOrders();
                 $newOrders->user_id       = Auth::user()->id;
                 $newOrders->title         = trim($request->title);
-                $newOrders->shape         = trim($request->model);
-                $newOrders->sideways      = trim($request->sideways);
-                $newOrders->diameter      = trim($request->diameter);
-                $newOrders->width         = trim($request->width);
-                $newOrders->length        = trim($request->length);
+                $newOrders->count         = trim($request->count);
                 $newOrders->description   = trim($request->description);
-                if(!empty($request->file[0]))
-                {
-                    $file = $request->file[0];
-                    $src = $file->getClientOriginalName();
-                    $file->move('public/dashboard/orderImages/', $src);
-                    $newOrders->file = $request->file[0]->getClientOriginalName();
-                }
+                $newOrders->coordination  = trim($request->coordination);
                 $newOrders->save();
                 if($newOrders)
                 {

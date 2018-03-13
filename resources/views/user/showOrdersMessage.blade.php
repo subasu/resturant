@@ -51,11 +51,7 @@
                     <thead>
                     <tr>
                         <th style="text-align: center">ردیف</th>
-                        <th style="text-align: center">حالت بوم</th>
-                        <th style="text-align: center">طول</th>
-                        <th style="text-align: center">عرض</th>
-                        <th style="text-align: center;border-right: 1px solid #d6d6c2">قطر</th>
-                        <th style="text-align: center;border-right: 1px solid #d6d6c2">اندازه یک ضلع</th>
+                        <th style="text-align: center">تعداد</th>
                         <th style="text-align: center;border-right: 1px solid #d6d6c2">وضعیت سفارش</th>
                     </tr>
                     </thead>
@@ -63,11 +59,7 @@
                     <tbody>
                     <tr class="unit">
                         <td style="font-size:18px;">{{1}}</td>
-                        <td style="font-size:18px;">{{$orders->shape}}</td>
-                        <td style="font-size:18px;">{{$orders->length}}</td>
-                        <td style="font-size:18px;">{{$orders->width}}</td>
-                        <td style="font-size:18px;">{{$orders->diameter}}</td>
-                        <td style="font-size:18px;">{{$orders->sideways}}</td>
+                        <td style="font-size:18px;">{{$orders->count}}</td>
                         @if($orders->orderMessages[0]->status == 0)
                             <td style="font-size:18px;"><button class="btn btn-info col-md-10 col-md-offset-1">در حال بررسی</button></td>
                         @endif

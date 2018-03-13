@@ -24,7 +24,8 @@ class UserMessageValidation extends FormRequest
     public function rules()
     {
         return [
-                    'description' => 'required|max:1000',
+                    'description'  => 'required|max:1000',
+                    'coordination' => 'required|max:500'
 //                    'title'       => 'required',
 //                    'models'      => 'required',
                ];
@@ -37,6 +38,8 @@ class UserMessageValidation extends FormRequest
             [
                'description.required' => 'پر کردن فیلد توضیحات الزامی است',
                'description.max'      => 'تعداد کارکترهای وارد شده در فیلد توضیحات بیش از حد مجاز است',
+                'coordination.required' => 'پر کردن فیلد آدرس الزامی است',
+                'coordination.max'      => 'تعداد کارکترهای وارد شده در فیلد آدرس بیش از حد مجاز است',
             ];
     }
 }
